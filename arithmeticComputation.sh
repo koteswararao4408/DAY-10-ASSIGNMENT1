@@ -1,6 +1,6 @@
 #!/bin/bash -x
 echo " welcome to Arithmetic computation program "
-
+declare -A compute
 read -p "Enter First Number : " a
 read -p "Enter Second Number : " b
 read -p "Enter a Third Number : " c
