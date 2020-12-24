@@ -20,3 +20,22 @@ do
         valuesArr[$arrayIndex]=$value                   #storing in an array
         arrayIndex=$(( $arrayIndex + 1 ))
 done
+
+arrayLength=${#valuesArr[@]}                            #for arrray length
+
+for (( i = 0 ; i <= $(( $arrayLength - 1 )) ; i++ ))    #for sorting values in descending order
+do
+     for (( j = 0 ; j < $i ;j++ ))
+     do
+          if [ ${valuesArr[j]} -lt ${valuesArr[$((j+1))]} ]
+          then
+            temp=${valuesArr[j]}
+            valuesArr[$j]=${valuesArr[$((j+1))]}
+            valuesArr[$((j+1))]=$temp
+          fi
+     done
+done
+
+echo "Descending sort" ${valuesArr[@]}                  #printing values in descending order
+
+
