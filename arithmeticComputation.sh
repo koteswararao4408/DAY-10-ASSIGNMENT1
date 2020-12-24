@@ -39,3 +39,18 @@ done
 echo "Descending sort" ${valuesArr[@]}                  #printing values in descending order
 
 
+for (( i = 0 ; i <= $(( $arrayLength - 1 )) ; i++ ))    #for sorting values in ascending order
+do
+     for (( j = 0 ; j < $i ;j++ ))
+     do
+          if [ ${valuesArr[j]} -gt ${valuesArr[$((j+1))]} ]
+          then
+            temp=${valuesArr[j]}
+            valuesArr[$j]=${valuesArr[$((j+1))]}
+            valuesArr[$((j+1))]=$temp
+          fi
+     done
+done
+
+echo "Ascending sort" ${valuesArr[@]}                    #printing values in ascending order
+
